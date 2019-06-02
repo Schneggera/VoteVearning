@@ -7,16 +7,25 @@ $('.dropdown-menu a').click(function(){
 $('#yes, #no').click(function(e){
     let clicked = e.target.id;
     let val = $('#dropdownMenuButton').text();
+    if (val === 'Bitte wählen:'){
+        $('#alertGroup').show();
+        return;
+    }
     let data = {
         val: val,
         clicked: clicked
     };
-
-    $('#dropdownMenuButton').html('Bitte wählen');
 
     $.ajax({
         type: 'POST',
         url: 'php.php',
         data: data
     })
+
+    $('#alertGroup').hide();
+    $('#alert').show();
+    setTimeout(function(){
+        $('#dropdownMenuButton').html('Bitte wählen:');
+        $('#alert').hide();
+    },2000)
 })
