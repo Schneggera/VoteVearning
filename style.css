@@ -9,3 +9,16 @@
 #quest{
     margin-bottom: 5rem !important;
 }
+
+.yn{
+    font-size: 5rem !important;
+}
+
+.btn{
+    font-size: 200%;
+    margin-bottom: 5rem;
+}
+
+.dropdown-item{
+    font-size: 2rem;
+}

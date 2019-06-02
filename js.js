@@ -1,14 +1,22 @@
-let y= document.getElementById('yes');
-let n= document.getElementById('no');
-let ycount = 0;
-let ncount = 0;
 
-y.addEventListener('click', function(){
-    ycount++;
-    console.log(ycount);
-})
+$('.dropdown-menu a').click(function(){
+    $(this).parents('.dropdown').find('.btn').html($(this).text());
+    $(this).parents('.dropdown').find('.btn').val($(this).text());
+  });
 
-n.addEventListener('click', function(){
-    ncount++;
-    console.log(ncount);
+$('#yes, #no').click(function(e){
+    let clicked = e.target.id;
+    let val = $('#dropdownMenuButton').text();
+    let data = {
+        val: val,
+        clicked: clicked
+    };
+
+    $('#dropdownMenuButton').html('Bitte wählen');
+
+    $.ajax({
+        type: 'POST',
+        url: 'php.php',
+        data: data
+    })
 })
